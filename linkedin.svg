@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="24" height="24" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" role="presentation" focusable="false">
+  <rect width="24" height="24" rx="4" fill="#0077B5" />
+  <path d="M7 9.5H4v10h3v-10zm-1.5-3a1.5 1.5 0 1 1 0 3 1.5 1.5 0 0 1 0-3zM12.75 9.5c-1.25 0-2 .75-2.25 1.25V11H7.5v10h3v-5.5c0-1 .5-2.25 2-2.25s2 1.25 2 2.25V21h3v-6c0-3-1.75-4.5-3.75-4.5z" fill="#fff" />
+</svg>
