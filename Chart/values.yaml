@@ -1,0 +1,6 @@
+image: nginx:1.30.6-alpine-slim
+sourcePath: /home/svandewater/dev-projects/scottvandewater.com/static-web
+nodeName: bfml
+host: scott-site.ldev.shadowtechllc.net
+ingressClassName: public
+clusterIssuer: lets-encrypt

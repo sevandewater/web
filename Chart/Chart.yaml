@@ -1,0 +1,5 @@
+apiVersion: v2
+name: scott-site
+description: Local HTTPS review deployment for ScottVanDeWater.com
+type: application
+version: 0.1.0

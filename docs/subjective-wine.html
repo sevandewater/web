@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Subjective Wine | Scott VanDeWater</title>
+    <meta name="description" content="A functional, field-tested wine discovery application combining AI-assisted identification, deterministic recommendations, observability, and agentic engineering. Currently pre-beta.">
+    <link rel="canonical" href="https://scottvandewater.com/subjective-wine.html">
+    <meta property="og:title" content="Subjective Wine | Scott VanDeWater">
+    <meta property="og:description" content="A functional, field-tested wine discovery application combining AI-assisted identification, deterministic recommendations, observability, and agentic engineering. Currently pre-beta.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://scottvandewater.com/subjective-wine.html">
+    <meta property="og:image" content="https://scottvandewater.com/scott_vandewater.jpg">
+    <meta name="twitter:card" content="summary">
+    <meta name="theme-color" content="#faf9f6">
+    <link rel="icon" type="image/svg+xml" href="favicon.svg">
+    <link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="favicon-16.png">
+    <link rel="apple-touch-icon" href="apple-touch-icon.png">
+    <link rel="stylesheet" href="styles.css">
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-JYEJ5H2SLE"></script>
+    <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag('js',new Date());gtag('config','G-JYEJ5H2SLE');</script>
+  </head>
+  <body>
+    <a class="skip-link" href="#main">Skip to content</a>
+    <header class="site-header">
+      <div class="container row">
+        <a class="name" href="index.html">Scott VanDeWater</a>
+        <nav class="primary-nav" aria-label="Primary">
+          <a href="experience.html">Experience</a>
+          <a href="approach.html">My Approach</a>
+          <a href="work.html" aria-current="true">Selected Work</a>
+          <a href="about.html">About</a>
+        </nav>
+        <nav class="profile-links" aria-label="Professional profiles">
+          <a href="https://www.linkedin.com/in/scottvandewater"><img src="assets/brands/linkedin.png" width="20" height="20" alt="" aria-hidden="true"><span>LinkedIn</span></a>
+          <a href="https://github.com/sevandewater"><img src="assets/brands/github.svg" width="20" height="20" alt="" aria-hidden="true"><span>GitHub</span></a>
+        </nav>
+      </div>
+    </header>
+    <main id="main" tabindex="-1">
+      <div class="container section">
+        <article class="prose">
+          <header class="intro">
+            <h1>Subjective Wine</h1>
+            <p><em>Applied AI, Mobile Architecture, and Agentic Software Engineering</em></p>
+          </header>
+          <section aria-labelledby="the-project">
+            <h2 id="the-project">The Project</h2>
+            <p>Subjective Wine started with a simple question: <strong>Will I enjoy this wine?</strong></p>
+            <p>The goal is to help people make wine selections based on their individual preferences rather than relying exclusively on general ratings or reviews.</p>
+            <p>A user can photograph a bottle, have the application identify the wine, and receive a personalized recommendation. As users rate wines, the system incorporates those preferences and experiences into future recommendations.</p>
+            <p>The application is functional and has been used regularly for real-world field testing. It remains under active development as I refine the mobile experience and expand its human review and feedback capabilities.</p>
+            <p>I am responsible for the product's architecture, technical direction, and engineering decisions.</p>
+          </section>
+          <section aria-labelledby="an-ai-application-not-just-an-ai-response">
+            <h2 id="an-ai-application-not-just-an-ai-response">An AI Application, Not Just an AI Response</h2>
+            <p>One of the central architectural decisions was determining where AI adds value and where conventional application logic is more appropriate.</p>
+            <p>Identifying a wine from a photograph involves uncertainty. Labels can be incomplete, difficult to interpret, or ambiguous. Information about a particular wine may also be missing from the catalog.</p>
+            <p>The application uses AI to interpret bottle information and acquire structured wine characteristics when needed.</p>
+            <p>Identification, catalog matching, and information acquisition are handled separately from personalized scoring.</p>
+            <p>For recommendations, I chose a <strong>content-based approach</strong> rather than relying on an LLM to generate individual scores.</p>
+            <p>The scoring system compares wine characteristics with a user's preferences and rating history. Positive, neutral, and disliked experiences influence the recommendation, while onboarding preferences provide an initial basis until the user has established more history.</p>
+            <p>This separation offers several advantages:</p>
+            <ul>
+              <li>Wine information can be acquired once and reused.</li>
+              <li>Personalized recommendations can be calculated without another AI inference.</li>
+              <li>Results are deterministic and repeatable for the same inputs.</li>
+              <li>Identification, information quality, and scoring can be investigated independently.</li>
+              <li>Individual stages can evolve without replacing the entire system.</li>
+            </ul>
+            <p>The objective is to make probabilistic AI useful within an application that remains understandable, testable, and cost-conscious.</p>
+            <p>Recommendation quality and calibration are still being evaluated as the product develops.</p>
+          </section>
+          <section aria-labelledby="making-ai-behavior-observable">
+            <h2 id="making-ai-behavior-observable">Making AI Behavior Observable</h2>
+            <p>A challenge with AI-powered applications is that a technically successful response isn't necessarily a correct one.</p>
+            <p>A model might identify the wrong wine, return incomplete characteristics, or produce information that leads to an unexpected recommendation.</p>
+            <p>I wanted to understand not just the final result, but what happened along the way.</p>
+            <p>The application retains structured diagnostic information about individual evaluation steps, including provider context, model and prompt versions, intermediate results, execution details, and relevant errors.</p>
+            <p>That makes it possible to investigate where a problem originated rather than treating an AI response as an opaque result.</p>
+            <p>The development environment also includes a Kubernetes-based observability stack with <strong>Grafana, Prometheus, Loki, Tempo, and Alertmanager</strong>.</p>
+            <p>The backend uses Pino for structured logging and OpenTelemetry instrumentation, with configured metrics and trace export. The observability services have been confirmed running in the development environment.</p>
+            <p>These capabilities provide a foundation for investigating application behavior and improving the system over time.</p>
+            <p>Human review and correction workflows are also being developed to support that process.</p>
+            <p>The objective is an observable, reviewable AI application—not an autonomous self-healing system.</p>
+          </section>
+          <section aria-labelledby="security-and-privacy-by-design">
+            <h2 id="security-and-privacy-by-design">Security and Privacy by Design</h2>
+            <p>Security and privacy have been priorities from the beginning, not features intended to be added after the application is complete.</p>
+            <p>The architecture includes Google and Apple authentication, application-managed sessions, secure mobile credential storage, and authorization checks around user-owned resources.</p>
+            <p>On the backend, session credentials are stored using hashed representations, and access to application data and diagnostic information is controlled through authentication and authorization.</p>
+            <p>Structured logging includes safeguards intended to limit sensitive information exposure, with attention to what is collected and retained for troubleshooting.</p>
+            <p>These decisions reflect my preference for establishing appropriate security and privacy boundaries early, particularly in applications that handle personal preferences, account information, photographs, and AI-generated diagnostic data.</p>
+            <p>The intent is to build security and privacy into the architecture while continuing to evaluate and improve the controls as the product evolves.</p>
+          </section>
+          <section aria-labelledby="developing-the-application-through-coding-agents">
+            <h2 id="developing-the-application-through-coding-agents">Developing the Application Through Coding Agents</h2>
+            <p>Subjective Wine has also been an important environment for developing my approach to agentic software engineering.</p>
+            <p>The application has been built through AI coding agents, with my role focused on requirements, architecture, technical direction, review, and decisions.</p>
+            <p>As the project developed, I introduced more deliberate controls around how agents work.</p>
+            <p>These include:</p>
+            <ul>
+              <li>Defined responsibilities and bounded implementation tasks</li>
+              <li>Architectural standards and explicit ownership of technical contracts</li>
+              <li>Approval requirements for consequential changes</li>
+              <li>Automated testing and deterministic verification</li>
+              <li>Separate implementation, review, and quality-assurance responsibilities</li>
+              <li>Retained engineering decisions and review records</li>
+            </ul>
+            <p>One particularly useful capability is source-aware verification.</p>
+            <p>The tooling associates verification results with the source state that was tested. When the source changes, an earlier successful result cannot simply be treated as evidence that the current code is valid.</p>
+            <p>This is one example of addressing problems that arise when agents generate code faster than traditional review and verification processes can comfortably accommodate.</p>
+            <p>The workflow continues to evolve as I identify weaknesses, improve verification, and refine the balance between agent autonomy and human oversight.</p>
+            <p>The goal isn't simply to generate more code. It's to establish an engineering process where agents can perform substantial implementation work while architectural judgment and accountability remain clearly defined.</p>
+          </section>
+          <section aria-labelledby="architecture-and-technology">
+            <h2 id="architecture-and-technology">Architecture and Technology</h2>
+            <p>The application consists of a React Native mobile client, a TypeScript/Express backend, and a PostgreSQL database managed through Prisma.</p>
+            <p>The mobile application handles bottle photography, recommendations, ratings, history, and user interactions.</p>
+            <p>The backend coordinates wine identification, catalog lookup and enrichment, user preferences, deterministic scoring, and workflow diagnostics.</p>
+            <p>OpenAI models support selected identification, parsing, and information-acquisition tasks.</p>
+            <p>The engineering environment includes automated tests, source-aware verification, structured logging, observability instrumentation, and agent-development workflows.</p>
+            <p>Docker, Kubernetes, and Helm support local development.</p>
+            <p>The architecture favors a relatively straightforward application structure rather than introducing distributed infrastructure before the requirements justify it.</p>
+          </section>
+          <section aria-labelledby="current-state">
+            <h2 id="current-state">Current State</h2>
+            <p>Subjective Wine is a functional application that I continue to use for field testing.</p>
+            <p>The core identification and recommendation workflows are implemented. Current work focuses on improving the mobile user experience, expanding human review and feedback capabilities, and strengthening the engineering processes used to develop the application.</p>
+            <p>The product remains pre-beta. Recommendation quality is still being evaluated, and there are additional capabilities to complete before broader testing.</p>
+            <p>For me, the project brings together several areas of engineering that I find particularly interesting: applied AI, software architecture, product development, observability, security, and agentic engineering.</p>
+            <p>It's both a working application and an opportunity to continue improving how software is built.</p>
+          </section>
+          <section aria-labelledby="technical-stack">
+            <h2 id="technical-stack">Technical Stack</h2>
+            <ul>
+              <li><strong>Mobile:</strong> TypeScript, React Native, Expo</li>
+              <li><strong>Backend:</strong> Node.js, TypeScript, Express, OpenAPI</li>
+              <li><strong>Database:</strong> PostgreSQL, Prisma</li>
+              <li><strong>Applied AI:</strong> OpenAI API, structured outputs, deterministic content-based recommendations</li>
+              <li><strong>Infrastructure:</strong> Docker, Kubernetes, Helm</li>
+              <li><strong>Testing:</strong> Vitest, Jest, PGlite</li>
+              <li><strong>Agentic engineering:</strong> AI coding agents, structured reviews, source-aware verification</li>
+              <li><strong>Logging and telemetry:</strong> Pino, OpenTelemetry</li>
+              <li><strong>Observability:</strong> Grafana, Prometheus, Loki, Tempo, Alertmanager</li>
+              <li><strong>Authentication:</strong> Google and Apple identity providers, application-managed sessions</li>
+            </ul>
+          </section>
+          <p><a href="work.html">Back to Selected Work</a></p>
+        </article>
+      </div>
+    </main>
+    <footer class="site-footer">
+      <div class="container row">
+        <p>© 2026 Scott VanDeWater</p>
+        <a href="privacy.html">Privacy</a>
+      </div>
+    </footer>
+  </body>
+</html>

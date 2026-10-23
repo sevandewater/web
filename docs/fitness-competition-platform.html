@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Fitness Competition Platform | Scott VanDeWater</title>
+    <meta name="description" content="A mobile fitness competition prototype with a React Native app, TypeScript backend, PostgreSQL, and accelerated simulation for testing time-based workflows.">
+    <link rel="canonical" href="https://scottvandewater.com/fitness-competition-platform.html">
+    <meta property="og:title" content="Fitness Competition Platform | Scott VanDeWater">
+    <meta property="og:description" content="A mobile fitness competition prototype with a React Native app, TypeScript backend, PostgreSQL, and accelerated simulation for testing time-based workflows.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://scottvandewater.com/fitness-competition-platform.html">
+    <meta property="og:image" content="https://scottvandewater.com/scott_vandewater.jpg">
+    <meta name="twitter:card" content="summary">
+    <meta name="theme-color" content="#faf9f6">
+    <link rel="icon" type="image/svg+xml" href="favicon.svg">
+    <link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="favicon-16.png">
+    <link rel="apple-touch-icon" href="apple-touch-icon.png">
+    <link rel="stylesheet" href="styles.css">
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-JYEJ5H2SLE"></script>
+    <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag('js',new Date());gtag('config','G-JYEJ5H2SLE');</script>
+  </head>
+  <body>
+    <a class="skip-link" href="#main">Skip to content</a>
+    <header class="site-header">
+      <div class="container row">
+        <a class="name" href="index.html">Scott VanDeWater</a>
+        <nav class="primary-nav" aria-label="Primary">
+          <a href="experience.html">Experience</a>
+          <a href="approach.html">My Approach</a>
+          <a href="work.html" aria-current="true">Selected Work</a>
+          <a href="about.html">About</a>
+        </nav>
+        <nav class="profile-links" aria-label="Professional profiles">
+          <a href="https://www.linkedin.com/in/scottvandewater"><img src="assets/brands/linkedin.png" width="20" height="20" alt="" aria-hidden="true"><span>LinkedIn</span></a>
+          <a href="https://github.com/sevandewater"><img src="assets/brands/github.svg" width="20" height="20" alt="" aria-hidden="true"><span>GitHub</span></a>
+        </nav>
+      </div>
+    </header>
+    <main id="main" tabindex="-1">
+      <div class="container section">
+        <article class="prose">
+          <header class="intro">
+            <h1>Fitness Competition Platform</h1>
+            <p><em>Full-Stack Architecture, Mobile Development, and Accelerated Simulation</em></p>
+          </header>
+          <section aria-labelledby="the-project">
+            <h2 id="the-project">The Project</h2>
+            <p>I designed and developed a mobile fitness competition platform intended to encourage regular physical activity through time-based challenges and rewards.</p>
+            <p>Participants could join competitions, track their activity, manage competing priorities, and work toward completion requirements. The application needed to coordinate user activity, competition deadlines, participation limits, and reward-related workflows.</p>
+            <p>I was responsible for the entire technical implementation, including the mobile application, backend services, database, and supporting development infrastructure.</p>
+          </section>
+          <section aria-labelledby="architecture">
+            <h2 id="architecture">Architecture</h2>
+            <p>The system consisted of a React Native mobile application, a TypeScript/Express REST API, and a PostgreSQL database.</p>
+            <p>The mobile application provided competition discovery, enrollment, participation tracking, check-ins, and reward-related interfaces. The backend managed authentication, business rules, persistence, and scheduled processing.</p>
+            <p>One interesting aspect of the architecture was separating competitions from individual participation. A single workout check-in could contribute toward multiple competitions, with participants controlling which active competitions received credit through a prioritized list.</p>
+            <p>The data model maintained distinct records for competitions, participation, and check-in events. Background processing handled competition expiration and participation outcomes.</p>
+            <p>The development environment used Docker, Kubernetes, and Helm.</p>
+          </section>
+          <section aria-labelledby="the-interesting-challenge-testing-time">
+            <h2 id="the-interesting-challenge-testing-time">The Interesting Challenge: Testing Time</h2>
+            <p>Competitions were designed to unfold over multiple days. Waiting for real-world deadlines during development would have made testing and iteration unnecessarily slow.</p>
+            <p>I addressed this by introducing an accelerated development mode.</p>
+            <p>Instead of requiring daily check-ins and waiting days for competitions to expire, the development environment could use minute-based check-in intervals and short competition durations.</p>
+            <p>I also developed a simulation that generated synthetic participants, created competitions, and produced recurring activity using the application's underlying business logic.</p>
+            <p>This allowed the environment to continually generate changing conditions, including enrollment, participation, completion, and expiration.</p>
+            <p>Importantly, the simulation operated alongside the actual application.</p>
+            <p>Testers and stakeholders could use the mobile interface while simulated users and competitions progressed in the background. This made it possible to explore interactions and observe application behavior across multiple competition lifecycles without waiting through real-world schedules.</p>
+            <p>The simulation was a development and testing tool, not a substitute for comprehensive automated testing or a claim of production-scale load testing.</p>
+          </section>
+          <section aria-labelledby="engineering-considerations">
+            <h2 id="engineering-considerations">Engineering Considerations</h2>
+            <p>Several aspects of the project required more than conventional application development.</p>
+            <p>Competition participation involved time-based eligibility, capacity constraints, priorities, and lifecycle transitions. These rules needed to remain consistent across mobile interactions, backend operations, and scheduled processing.</p>
+            <p>The architecture also needed to support meaningful testing of stateful behavior. Rather than relying exclusively on static test records, the development environment could continually produce evolving application data.</p>
+            <p>I favored a relatively straightforward application architecture, with a single backend and background processors, rather than introducing distributed services before they were justified.</p>
+            <p>The result was an environment that supported both development and interactive product demonstrations.</p>
+          </section>
+          <section aria-labelledby="outcome">
+            <h2 id="outcome">Outcome</h2>
+            <p>The project reached a functional prototype with a mobile application, backend services, persistent data, and a working development environment.</p>
+            <p>Testers and stakeholders interacted with the application, including while the accelerated simulation was running.</p>
+            <p>Although the product was not commercially launched during my involvement, the project demonstrated end-to-end product engineering, relational data modeling, time-based workflow design, mobile development, and practical approaches to testing complex application behavior.</p>
+            <p>It was also an entirely hands-on implementation, completed before I adopted the agentic development practices I use today.</p>
+          </section>
+          <p><a href="work.html">Back to Selected Work</a></p>
+        </article>
+      </div>
+    </main>
+    <footer class="site-footer">
+      <div class="container row">
+        <p>© 2026 Scott VanDeWater</p>
+        <a href="privacy.html">Privacy</a>
+      </div>
+    </footer>
+  </body>
+</html>

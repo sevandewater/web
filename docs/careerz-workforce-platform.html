@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Careerz Group Workforce Platform | Scott VanDeWater</title>
+    <meta name="description" content="Architecture-led agentic engineering for Careerz Group: extending an assessment platform and delivering the initial Workforce Portal to production in approximately three weeks.">
+    <link rel="canonical" href="https://scottvandewater.com/careerz-workforce-platform.html">
+    <meta property="og:title" content="Careerz Group Workforce Platform | Scott VanDeWater">
+    <meta property="og:description" content="Architecture-led agentic engineering for Careerz Group: extending an assessment platform and delivering the initial Workforce Portal to production in approximately three weeks.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://scottvandewater.com/careerz-workforce-platform.html">
+    <meta property="og:image" content="https://scottvandewater.com/scott_vandewater.jpg">
+    <meta name="twitter:card" content="summary">
+    <meta name="theme-color" content="#faf9f6">
+    <link rel="icon" type="image/svg+xml" href="favicon.svg">
+    <link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="favicon-16.png">
+    <link rel="apple-touch-icon" href="apple-touch-icon.png">
+    <link rel="stylesheet" href="styles.css">
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-JYEJ5H2SLE"></script>
+    <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag('js',new Date());gtag('config','G-JYEJ5H2SLE');</script>
+  </head>
+  <body>
+    <a class="skip-link" href="#main">Skip to content</a>
+    <header class="site-header">
+      <div class="container row">
+        <a class="name" href="index.html">Scott VanDeWater</a>
+        <nav class="primary-nav" aria-label="Primary">
+          <a href="experience.html">Experience</a>
+          <a href="approach.html">My Approach</a>
+          <a href="work.html" aria-current="true">Selected Work</a>
+          <a href="about.html">About</a>
+        </nav>
+        <nav class="profile-links" aria-label="Professional profiles">
+          <a href="https://www.linkedin.com/in/scottvandewater"><img src="assets/brands/linkedin.png" width="20" height="20" alt="" aria-hidden="true"><span>LinkedIn</span></a>
+          <a href="https://github.com/sevandewater"><img src="assets/brands/github.svg" width="20" height="20" alt="" aria-hidden="true"><span>GitHub</span></a>
+        </nav>
+      </div>
+    </header>
+    <main id="main" tabindex="-1">
+      <div class="container section">
+        <article class="prose">
+          <header class="intro">
+            <h1>Careerz Group — Workforce Platform</h1>
+            <p><em>Full-Stack Architecture, Agentic Engineering, and Rapid Delivery</em></p>
+          </header>
+          <section aria-labelledby="the-project">
+            <h2 id="the-project">The Project</h2>
+            <p>The objective was to extend an existing assessment platform into a workforce management application that organizations could use to evaluate candidates and employees against position requirements.</p>
+            <p>This introduced a different set of challenges from administering assessments. Organizations needed to manage positions, define requirements, compare individuals, review results, and make informed decisions while maintaining appropriate access boundaries.</p>
+            <p>I was responsible for the architecture, technical direction, and hands-on engineering.</p>
+            <p>Using AI coding agents extensively throughout development, I delivered the initial Workforce Portal to production in approximately three weeks.</p>
+          </section>
+          <section aria-labelledby="building-on-an-existing-platform">
+            <h2 id="building-on-an-existing-platform">Building on an Existing Platform</h2>
+            <p>One of the early architectural decisions was to extend the existing system rather than duplicate its assessment capabilities.</p>
+            <p>The platform already maintained user identities and assessment results. The new workforce functionality needed to introduce organizations, memberships, positions, candidate associations, and reporting without creating a separate system of record for information that already existed.</p>
+            <p>The resulting architecture uses a React and TypeScript frontend with a TypeScript/Express API, PostgreSQL, and Prisma.</p>
+            <p>The application supports organizational administration, position management, candidate and employee comparisons, configurable matching criteria, and reporting.</p>
+            <p>An important consideration was separating access to workforce information from the ability to participate in an assessment. Organizational permissions and assessment participation are distinct responsibilities, with access decisions enforced by the backend.</p>
+            <p>This allowed the new functionality to build on existing capabilities while preserving clear ownership and authorization boundaries.</p>
+          </section>
+          <section aria-labelledby="agentic-engineering-in-practice">
+            <h2 id="agentic-engineering-in-practice">Agentic Engineering in Practice</h2>
+            <p>A distinguishing aspect of this project was the development approach.</p>
+            <p>Rather than treating AI coding agents as unrestricted developers, I established architectural expectations, coding standards, and implementation boundaries to guide their work.</p>
+            <p>The development process emphasized requirements, API contracts, data modeling, and verification. Agents accelerated implementation, while architectural decisions, consequential changes, and responsibility for the delivered system remained under my control.</p>
+            <p>Automated testing supported important workflows, particularly around access control, data relationships, candidate participation, and reporting.</p>
+            <p>The objective wasn't simply to produce code faster. It was to use agents to increase engineering capacity while maintaining a coherent architecture and a system that could continue evolving.</p>
+          </section>
+          <section aria-labelledby="engineering-decisions">
+            <h2 id="engineering-decisions">Engineering Decisions</h2>
+            <p>Several decisions helped keep the implementation manageable.</p>
+            <p><strong>Reuse existing capabilities.</strong> The workforce platform builds on established assessment identities and results rather than maintaining competing implementations.</p>
+            <p><strong>Keep responsibilities clear.</strong> Organization membership, workforce participation, and assessment access are separate concepts, reflected in both the data model and authorization logic.</p>
+            <p><strong>Favor straightforward architecture.</strong> A modular application and shared API provided the required functionality without introducing distributed services or unnecessary orchestration.</p>
+            <p><strong>Use consistent business logic.</strong> Matching and reporting share deterministic calculations, helping maintain consistent results across different application workflows.</p>
+            <p><strong>Build for continued development.</strong> The initial release established a foundation that could be extended with additional administrative, reporting, and workforce capabilities.</p>
+          </section>
+          <section aria-labelledby="outcome">
+            <h2 id="outcome">Outcome</h2>
+            <p>The initial Workforce Portal reached production in approximately three weeks, demonstrating the practical use of agentic engineering to deliver a substantial business application.</p>
+            <p>Development continued beyond that release, with additional functionality and refinements.</p>
+            <p>For me, the project demonstrates how architectural direction, thoughtful boundaries, and AI-assisted implementation can work together.</p>
+            <p>The agents accelerated execution, but engineering judgment and responsibility for the result remained human.</p>
+          </section>
+          <section aria-labelledby="technical-stack">
+            <h2 id="technical-stack">Technical Stack</h2>
+            <ul>
+              <li><strong>Frontend:</strong> React, TypeScript, Vite, TanStack Query</li>
+              <li><strong>Backend:</strong> Node.js, TypeScript, Express</li>
+              <li><strong>Database:</strong> PostgreSQL, Prisma</li>
+              <li><strong>API:</strong> REST, OpenAPI, request validation</li>
+              <li><strong>Testing:</strong> Mocha, Chai, Supertest, Vitest, React Testing Library, MSW</li>
+            </ul>
+          </section>
+          <p><a href="work.html">Back to Selected Work</a></p>
+        </article>
+      </div>
+    </main>
+    <footer class="site-footer">
+      <div class="container row">
+        <p>© 2026 Scott VanDeWater</p>
+        <a href="privacy.html">Privacy</a>
+      </div>
+    </footer>
+  </body>
+</html>
